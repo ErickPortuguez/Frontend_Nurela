@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import Swal from 'sweetalert2';
+import { environment } from '../../environments/environment';
 
 interface Categoria {
   idCategoria?: number;
@@ -12,10 +12,9 @@ interface Categoria {
   providedIn: 'root'
 })
 export class CategoriaService {
-  private apiUrl = 'http://localhost:8080/api/categorias'; // URL base de la API
+  private apiUrl = `${environment.apiUrl}/categorias`;
 
   constructor(private http: HttpClient) {}
-
   getAllCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.apiUrl);
   }
