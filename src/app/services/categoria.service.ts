@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment';
 
 interface Categoria {
@@ -12,9 +13,10 @@ interface Categoria {
   providedIn: 'root'
 })
 export class CategoriaService {
-  private apiUrl = `${environment.apiUrl}/categorias`;
+  private apiUrl = 'https://verbose-space-chainsaw-q55v6vv9774347w6-8081.app.github.dev/machabarberia/api/categorias'; // URL base de la API
 
   constructor(private http: HttpClient) {}
+
   getAllCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.apiUrl);
   }

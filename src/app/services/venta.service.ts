@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Venta } from '../shared/venta.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VentaService {
 
-  private apiUrl = 'http://localhost:8080/api/ventas';
+  private apiUrl = 'https://verbose-space-chainsaw-q55v6vv9774347w6-8081.app.github.dev/machabarberia/api/ventas';
 
   constructor(private http: HttpClient) {}
 
